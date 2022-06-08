@@ -1,28 +1,34 @@
 import random
 
-options = ["R","P","S"]
+options = {
+    "R" : "Rock",
+    "P" : "Paper",
+    "S" : "Scissors"
+}
 
+opt = list(options.keys())
 
 
 def main():
-    player_choice = input(f"Chose a Letter from {options} ")
+    player_choice = input(f"Chose a Letter from {opt} ")
     player_choice = player_choice.upper()
-    computer_choice = random.choice(options)
-    print("I got here")
+    computer_choice = random.choice(opt)
+
+    print(f"Player ({options[player_choice]}): CPU( {options[computer_choice]}) ")
 
     def rule():
         if player_choice == 'R' and computer_choice == 'S':
             print("You win!")
         elif computer_choice == 'R' and player_choice == 'S':
-            print("You lose")
+            print("Computer Wins")
         elif player_choice == 'P' and computer_choice == 'R':
             print('You win')
         elif computer_choice == 'P' and player_choice == 'R':
-            print("You lose")
+            print("Computer Wins")
         elif player_choice == 'S' and computer_choice == 'P':
             print("You win")
         elif computer_choice == "S" and player_choice == "P":
-            print("You lose")
+            print("Computer Wins")
 
     if player_choice not in options:
         print(f"You entered a wrong input {player_choice}")
@@ -32,7 +38,6 @@ def main():
             print("Its a tie!")
             main()
         else:
-            print(player_choice, computer_choice)
             rule()
 
 
