@@ -14,7 +14,6 @@ def main():
     player_choice = player_choice.upper()
     computer_choice = random.choice(opt)
 
-    print(f"Player ({options[player_choice]}): CPU( {options[computer_choice]}) ")
 
     def rule():
         if player_choice == 'R' and computer_choice == 'S':
@@ -30,10 +29,11 @@ def main():
         elif computer_choice == "S" and player_choice == "P":
             print("Computer Wins")
 
-    if player_choice not in options:
+    if player_choice not in opt:
         print(f"You entered a wrong input {player_choice}")
         main()
     else:
+        print(f"Player ({options[player_choice]}): CPU( {options[computer_choice]}) ")
         if player_choice == computer_choice:
             print("Its a tie!")
             main()
